@@ -4398,3 +4398,8 @@ body.page-planetas h1{
     color: #FFB21D !important;
   }
 }
+
+/* Menu: item da página atual sem link (href removido) mantém aspeto */
+nav a[aria-current="page"]:not([href]){
+  cursor: default;
+}
