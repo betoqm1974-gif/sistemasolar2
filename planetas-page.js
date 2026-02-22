@@ -41,7 +41,7 @@ function render(){
     card.dataset.name = p.nome;
 
     card.innerHTML = `
-      <a class="planet-thumb" href="${hrefPlaneta(p.id)}" aria-label="${p.nome}">
+      <a class="planet-thumb" href="${hrefPlaneta(p.id)}" aria-label="${p.tipo} ${p.nome}">
         <img src="${p.imagem}" alt="${p.alt}">
         <span class="badge planet-type planet-type-overlay" tabindex="0" role="button" aria-label="${p.tipo}">${p.tipo}</span>
         <span class="planet-name-overlay" aria-hidden="true">${p.nome}</span>
