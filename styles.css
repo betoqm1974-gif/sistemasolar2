@@ -3521,10 +3521,24 @@ body:not(.page-contacto) main#conteudo li{
   margin-right: 0 !important;
 }
 
-/* Mapa do Site: lista com o mesmo tamanho do menu, ligeiramente mais à direita e sem sublinhado */
-body.page-sitemap .sitemap{
-  padding-left: 0.5rem; /* empurra um pouco para a direita */
+/* Mapa do Site: lista com o mesmo tamanho do menu, alinhada à esquerda e sem sublinhado */
+body.page-sitemap main#conteudo{
+  text-align: left;
 }
+body.page-sitemap .sitemap{
+  padding-left: 0;     /* não empurrar para o centro */
+  margin-left: 0;
+  max-width: 100%;
+}
+body.page-sitemap .sitemap a{
+  font-size: 0.95rem !important;
+  text-decoration: none !important;
+}
+body.page-sitemap .sitemap a:hover,
+body.page-sitemap .sitemap a:focus-visible{
+  text-decoration: underline;
+}
+
 body.page-sitemap .sitemap a{
   font-size: 0.95rem !important;
   text-decoration: none !important;
