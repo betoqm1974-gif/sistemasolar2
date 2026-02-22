@@ -40,28 +40,11 @@
 <main class="container" id="conteudo" tabindex="-1">
 <article class="reader-article" itemprop="articleBody" role="article">
 <div class="title-row">
-<h1 id="planetasTitle">Planetas</h1></div>
-<p class="no-read" id="planetasIntro">Filtre por tipo e pesquisa por palavras. Exemplo: anéis, tempestade, metano.</p>
+<h1 class="planetas-title-shift" id="planetasTitle">Planetas</h1></div>
+
 <section aria-label="Filtros" class="controls planet-controls">
-<div style="min-width:240px">
-<label for="tipo">Filtrar por tipo</label>
-<select id="tipo">
-<option value="todos">Todos</option>
-<option value="Rochoso">Rochoso</option>
-<option value="Gigante gasoso">Gigante gasoso</option>
-<option value="Gigante gelado">Gigante gelado</option>
-</select>
-</div>
-<div style="min-width:260px; flex:1">
-<label for="q">Pesquisar</label>
-<input id="q" placeholder="Ex.: Marte, anéis, tempestade…" type="search"/>
-</div>
-<div style="min-width:160px; display:flex; align-items:flex-end">
-<button class="btn say" data-say="Limpar filtros" id="clearFilters" type="button">Limpar</button>
-</div>
-<div style="min-width:220px">
-<p class="status no-read" id="live">A mostrar 8 planetas.</p>
-</div>
+
+
 </section>
 <section aria-label="Lista de planetas">
 <div class="grid planets-grid" id="lista" role="list"></div>

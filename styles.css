@@ -3398,7 +3398,7 @@ button.photo-thumb:focus-visible img{
 
 /* FIX: Contacto — campos mais largos */
 .page-contacto .contact-form{
-  max-width: 900px;
+  max-width: 1100px;
 }
 .page-contacto .contact-form input,
 .page-contacto .contact-form textarea{
@@ -3896,4 +3896,91 @@ nav.main-nav ul.submenu .submenu-label{
   display: inline-block;
   padding: 2px 8px;
   border-radius: 10px;
+}
+
+/* Mapa do Site: avançar 10px para a direita as listas com bullets */
+body.page-sitemap .sitemap ul{
+  padding-left: calc(1.2em + 10px) !important;
+}
+
+/* Mapa do Site: mover apenas o título 300px para a esquerda */
+body.page-sitemap .sitemap-title-shift{
+  position: relative;
+  left: -243px;
+}
+
+/* Planetas: mover o título para a esquerda (aplica mesmo sem classe no <body>) */
+.planetas-title-shift{
+  position: relative;
+  left: -20px;
+}
+
+/* Mapa do Site: alinhar o parágrafo introdutório com o título */
+.sitemap-intro-align-title{
+  position: relative;
+  left: -243px;
+}
+
+/* Mapa do Site: puxar a lista de ligações 200px para a esquerda */
+.sitemap-links-shift-left{
+  position: relative;
+  left: -200px;
+}
+
+/* Fallback caso o <body> não tenha page-sitemap */
+.sitemap a:hover,
+.sitemap a:focus-visible{
+  color: #FFB21D !important;
+}
+
+.sitemap a:hover,
+.sitemap a:focus-visible{
+  color: #FFB21D !important;
+  background: rgba(255,255,255,0.18);
+}
+
+/* Mapa do Site: realce semi-transparente só no hover e com altura do texto */
+.sitemap a{
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+.sitemap a .sitemap-label{
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.sitemap a:hover .sitemap-label,
+.sitemap a:focus-visible .sitemap-label{
+  background: rgba(255,255,255,0.18);
+}
+
+/* Contacto: mover título e frase introdutória 300px para a esquerda */
+.contacto-title-shift,
+.contacto-intro-shift{
+  position: relative;
+  left: -325px;
+}
+
+/* Contacto: alinhar o formulário com o título */
+.contacto-form-align-title{
+  position: relative;
+  left: -295px;
+}
+
+
+/* Contacto: campos do formulário mais largos */
+.contacto-form-align-title{
+  max-width: 1100px;
+}
+.contacto-form-align-title input,
+.contacto-form-align-title textarea,
+.contacto-form-align-title select{
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+/* Contacto: aumentar largura do formulário (+200px face aos 720px originais) */
+.contact-form.contacto-form-align-title{
+  max-width: 920px !important;
 }

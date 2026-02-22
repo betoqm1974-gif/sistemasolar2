@@ -23,8 +23,8 @@ function hrefPlaneta(id){
 
 
 function render(){
-  const t = tipo.value;
-  const term = q.value.trim().toLowerCase();
+  const t = (tipo && tipo.value) ? tipo.value : "todos";
+  const term = (q && q.value) ? q.value.trim().toLowerCase() : "";
 
   const filtrados = planetas.filter(p => {
     const okTipo = (t === "todos") || (p.tipo === t);
@@ -114,19 +114,21 @@ function render(){
   if (live) live.textContent = `A mostrar ${filtrados.length} planeta${filtrados.length===1?"":"s"}.`;
 }
 
-tipo.addEventListener("change", ()=>{
+if(tipo){
+  tipo.addEventListener("change", ()=>{
     render();
     try{
       const sel = tipo.options[tipo.selectedIndex];
       const txt = (sel ? (sel.textContent||sel.label||"") : "").trim();
       if(txt && window.__TTS && ("speechSynthesis" in window)){
-        // respeitar o interruptor de leitura
         const v = localStorage.getItem("tts_click_enabled");
         const enabled = (v === null) ? true : (v === "1");
         if(enabled) window.__TTS.toggleSpeak(txt, false);
       }
     }catch(e){}
-  }); // FIX144_speak_filter_choice
+  });
+}
+// FIX144_speak_filter_choice
   if(clearBtn){
     clearBtn.addEventListener("click", ()=>{
       if(tipo) tipo.value = "todos";
@@ -136,5 +138,7 @@ tipo.addEventListener("change", ()=>{
       try{ q && q.focus(); }catch(e){}
     });
   }
-q.addEventListener("input", render);
+if(q){
+  q.addEventListener("input", render);
+}
 render();
