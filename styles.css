@@ -1722,7 +1722,7 @@ nav a:hover, nav a:focus-visible,
   right: 0px !important;
   bottom: 0px !important;
   border-radius: 0 0 14px 14px; /* acompanha a miniatura */
-  padding: 10px 12px !important;
+  padding: 7px 12px !important;
 }
 .photo-card figcaption.card-pad::before,
 .media-card figcaption.card-pad::before{
@@ -3997,4 +3997,371 @@ body.page-sitemap .sitemap-title-shift{
     left: 0 !important;
     transform: none !important;
   }
+}
+
+/* Páginas dos planetas: título à esquerda e "Voltar à lista" à direita na mesma linha */
+.planet-header{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.planet-header .btn-voltar-lista{
+  margin-left: auto;
+}
+@media (max-width: 768px){
+  .planet-header{
+    align-items: flex-start;
+  }
+}
+
+/* Planetas: encostar "Voltar à lista" ao lado direito do ecrã */
+.planet-header{
+  position: relative;
+  width: 100%;
+}
+.planet-header .btn-voltar-lista{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media (max-width: 768px){
+  .planet-header .btn-voltar-lista{
+    position: static;
+    margin-left: auto;
+  }
+}
+
+/* Index: reduzir espaço entre o último parágrafo e o rodapé */
+.index-last-paragraph-tight{
+  margin-bottom: 0px !important;
+}
+
+/* Index: reduzir mais 20px do espaço antes do rodapé */
+body.page-index main#conteudo{
+  padding-bottom: 0px !important;
+  margin-bottom: -50px;
+}
+
+/* Menu mobile (hambúrguer) */
+nav.main-nav .nav-toggle{
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+nav.main-nav .nav-toggle:focus-visible{
+  outline: 2px solid #f4b546;
+  outline-offset: 2px;
+}
+nav.main-nav .nav-toggle__bar{
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px 0;
+  background: #ffffff;
+  opacity: 0.9;
+}
+nav.main-nav .nav-links{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Colapsar em mobile */
+@media (max-width: 768px){
+  nav.main-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  nav.main-nav .nav-toggle{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  nav.main-nav .nav-links{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-top: 8px;
+  }
+  nav.main-nav.is-open .nav-links{
+    display: flex;
+  }
+  /* Melhor área de toque */
+  nav.main-nav .nav-links a{
+    display: inline-block;
+    padding: 8px 10px;
+  }
+}
+
+/* Mobile menu: remover separadores | e submenu a abrir à direita sem tapar */
+@media (max-width: 768px){
+  nav.main-nav .nav-links{
+    gap: 4px;
+  }
+  nav.main-nav .nav-links .nav-sep,
+  nav.main-nav .nav-links .sep,
+  nav.main-nav .nav-links .separator{
+    display: none !important;
+  }
+  /* esconder qualquer caractere '|' que possa estar a ser gerado por ::before/::after */
+  nav.main-nav .nav-links li::before,
+  nav.main-nav .nav-links li::after{
+    content: none !important;
+  }
+
+  /* Submenu Planetas: dropdown inline (não overlay) */
+  nav.main-nav .has-submenu{
+    position: relative;
+  }
+  nav.main-nav .has-submenu .submenu,
+  nav.main-nav .has-submenu .sub-menu{
+    position: static !important;
+    width: 100%;
+    margin-left: 14px;
+    padding: 4px 0 0 0;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  nav.main-nav .has-submenu .submenu a,
+  nav.main-nav .has-submenu .sub-menu a{
+    padding: 6px 10px;
+  }
+}
+
+/* Mobile: submenu não sobrepõe (tapar) - ocupa espaço no fluxo */
+@media (max-width: 768px){
+  nav.main-nav .has-submenu.is-open > .submenu,
+  nav.main-nav .has-submenu.is-open > .sub-menu,
+  nav.main-nav .has-submenu.is-open > ul{
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 6px 0 0 14px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    z-index: 0 !important;
+  }
+  /* garantir que o item Planetas e o submenu ficam em coluna e empurram o resto */
+  nav.main-nav .has-submenu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile: substituir ícone da casa por texto "Início" */
+.home-text-mobile{
+  display: none;
+  margin-left: 6px;
+}
+@media (max-width: 768px){
+  nav.main-nav a.home-link img,
+  nav.main-nav a.home-link svg,
+  nav.main-nav a.home-link .home-icon,
+  nav.main-nav a.home-link .icon-home{
+    display: none !important;
+  }
+  nav.main-nav a.home-link{
+    display: inline-flex;
+    align-items: center;
+  }
+  nav.main-nav a.home-link .home-text-mobile{
+    display: inline !important;
+    margin-left: 0;
+  }
+}
+
+/* Mobile: alinhar "Início" à esquerda e reduzir espaçamento entre itens do menu */
+@media (max-width: 768px){
+  nav.main-nav .nav-links{
+    gap: 2px !important;
+    padding-top: 6px !important;
+  }
+  nav.main-nav .nav-links a{
+    padding: 6px 8px !important;
+    margin: 0 !important;
+  }
+  nav.main-nav a.home-link{
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+  nav.main-nav a.home-link .home-text-mobile{
+    text-align: left !important;
+  }
+}
+
+/* Mobile: remover barra laranja (só cor no texto) + alinhar itens (sem indent no activo) + espaçamento mais curto */
+@media (max-width: 768px){
+  /* remove qualquer barra/linha/underline animado do menu em mobile */
+  nav.main-nav .nav-links a::before,
+  nav.main-nav .nav-links a::after,
+  nav.main-nav .nav-links li::before,
+  nav.main-nav .nav-links li::after{
+    content: none !important;
+    display: none !important;
+  }
+
+  /* garantir alinhamento à esquerda igual para todos (inclui activo) */
+  nav.main-nav .nav-links{
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    gap: 0 !important;
+  }
+  nav.main-nav .nav-links li{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  nav.main-nav .nav-links a{
+    padding: 7px 12px !important;   /* menos espaço horizontal e vertical */
+    margin: 0 !important;
+    line-height: 1.1 !important;
+    text-indent: 0 !important;
+  }
+
+  /* realce apenas por cor (hover/activo) */
+  nav.main-nav .nav-links a:hover,
+  nav.main-nav .nav-links a:focus-visible,
+  nav.main-nav .nav-links a.active,
+  nav.main-nav .nav-links li.active > a{
+    color: #FFB21D !important;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Mobile: garantir que "Início" fica exactamente alinhado com os restantes itens */
+@media (max-width: 768px){
+  nav.main-nav .nav-links a,
+  nav.main-nav .nav-links a.active,
+  nav.main-nav .nav-links li.active > a{
+    padding-left: 12px !important;
+    margin-left: 0 !important;
+    border-left: 0 !important;
+  }
+  nav.main-nav .nav-links li:first-child a{
+    padding-left: 12px !important;
+  }
+}
+
+/* Mobile: impedir centragem do item activo (ex.: INÍCIO) */
+@media (max-width: 768px){
+  nav.main-nav .nav-links a{
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+  nav.main-nav .nav-links a.active,
+  nav.main-nav .nav-links li.active > a{
+    text-align: left !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+  /* Garantir que o item INÍCIO (nav-home) fica alinhado à esquerda como os restantes */
+  nav.main-nav .nav-links a.nav-home{
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+  }
+  nav.main-nav .nav-links a.nav-home .home-text-mobile{
+    margin-left: 0 !important;
+  }
+
+}
+
+
+/* FIX_139: Mobile - alinhar 'Início' como os restantes itens (sem centrar) */
+@media (max-width: 768px){
+  nav.main-nav.is-open .nav-links a.nav-home,
+  nav.main-nav.is-open .nav-links a.home-link{
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-left: 0 !important;
+  }
+  nav.main-nav.is-open .nav-links a.nav-home .home-text-mobile,
+  nav.main-nav.is-open .nav-links a.home-link .home-text-mobile{
+    margin-left: 0 !important;
+    width: auto !important;
+  }
+}
+
+}
+
+/* Mobile: remover item "Início" do menu (apenas mobile) */
+}
+
+/* também remover separador imediatamente a seguir, se existir como texto/elemento */
+  nav a[href$="index.html"] + .nav-sep,
+  nav a[href$="index.html"] + span,
+  nav a[href$="index.html"] + strong{
+    display: none !important;
+  }
+}
+
+}
+
+/* Mobile: item "Início" novo como os restantes (sem centragem) */
+@media (max-width: 768px){
+  nav .nav-links li{ width: 100%; }
+  nav .nav-links li a{ width: 100%; text-align: left; }
+}
+
+/* Mobile: remover bolinhas (marcadores) da lista do menu */
+@media (max-width: 768px){
+  nav .nav-links{
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+  nav .nav-links li{
+    list-style: none !important;
+  }
+}
+
+/* Desktop: inverter cores do ícone Home (normal: círculo branco + casa laranja; hover/activo: círculo laranja + casa branca) */
+@media (min-width: 769px){
+  /* estado normal */
+  .nav-home-svg .home-bg{ fill: #FFFFFF !important; }
+  .nav-home-svg .home-house{ fill: #FFB21D !important; }
+  .nav-home-svg .home-roof{ stroke: #FFB21D !important; }
+  .nav-home-svg .home-door{ fill: #FFFFFF !important; }
+
+  /* hover/focus/activo */
+  a.nav-home:hover .home-bg,
+  a.nav-home:focus-visible .home-bg,
+  a.nav-home[aria-current="page"] .home-bg,
+  a.nav-home.active .home-bg{ fill: #FFB21D !important; }
+
+  a.nav-home:hover .home-house,
+  a.nav-home:focus-visible .home-house,
+  a.nav-home[aria-current="page"] .home-house,
+  a.nav-home.active .home-house{ fill: #FFFFFF !important; }
+
+  a.nav-home:hover .home-roof,
+  a.nav-home:focus-visible .home-roof,
+  a.nav-home[aria-current="page"] .home-roof,
+  a.nav-home.active .home-roof{ stroke: #FFFFFF !important; }
+
+  a.nav-home:hover .home-door,
+  a.nav-home:focus-visible .home-door,
+  a.nav-home[aria-current="page"] .home-door,
+  a.nav-home.active .home-door{ fill: #FFB21D !important; }
 }
