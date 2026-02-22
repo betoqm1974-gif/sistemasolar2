@@ -4365,3 +4365,27 @@ nav.main-nav .nav-links{
   a.nav-home[aria-current="page"] .home-door,
   a.nav-home.active .home-door{ fill: #FFB21D !important; }
 }
+
+
+/* Planetas: garantir texto introdutório por baixo do título */
+#conteudo h1{ display:block; }
+.intro-planetas{ display:block; width:100%; }
+
+.intro-planetas{ margin-top: 8px; }
+
+/* Planetas: texto introdutório por baixo do título (sem mexer no título) */
+.planetas-intro-wrap{
+  display:block;
+  width:100%;
+  clear: both;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+.planetas-intro-wrap .intro-planetas{
+  margin: 0;
+}
+
+/* Planetas: mover título 20px para a direita (apenas planetas.html) */
+body.page-planetas h1{
+  transform: translateX(20px);
+}
