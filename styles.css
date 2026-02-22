@@ -3547,3 +3547,353 @@ body.page-sitemap .sitemap a:hover,
 body.page-sitemap .sitemap a:focus-visible{
   text-decoration: underline;
 }
+
+/* Submenu (Planetas) no menu principal */
+nav.main-nav .has-submenu{
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;      /* garante a mesma linha */
+  padding: 0 !important;       /* não mexe na altura da linha do menu */
+  margin: 0 !important;
+}
+
+/* “ponte” invisível entre PLANETAS e o submenu (sem subir o texto) */
+nav.main-nav .has-submenu::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 10px;
+}
+
+/* PLANETAS fica igual aos outros (não sobe/não mexe) */
+nav.main-nav .has-submenu > a,
+nav.main-nav .has-submenu > a:hover,
+nav.main-nav .has-submenu > a:focus-visible{
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Dropdown */
+nav.main-nav .has-submenu .submenu{
+  display:none;
+  position:absolute;
+  top: calc(100% + 4px);  /* encosta na ponte */
+  left: 0;
+  margin: 0 !important;
+  padding: 4px 4px !important;
+  list-style: none;
+  background: rgba(0,0,0,0.88);
+  border: 1px solid rgba(255,178,29,0.75);
+  border-radius: 12px;
+  min-width: 170px;
+  z-index: 9999;
+}
+nav.main-nav .has-submenu:hover .submenu,
+nav.main-nav .has-submenu:focus-within .submenu,
+nav.main-nav .has-submenu.is-open .submenu{ display:block; }
+
+nav.main-nav .has-submenu .submenu li{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Subitens MAIS JUNTOS */
+nav.main-nav .has-submenu .submenu a{
+  display:block;
+  padding: 1px 8px !important;     /* menos espaçamento vertical */
+  line-height: 1.0 !important;
+  margin: 0 !important;
+
+  font-size: 0.95rem !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  border-radius: 8px;
+  white-space: nowrap;
+
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+nav.main-nav .has-submenu .submenu a:hover,
+nav.main-nav .has-submenu .submenu a:focus-visible{
+  color: #FFB21D !important;
+  background: rgba(255,178,29,0.12) !important;
+  border-color: transparent !important;
+}
+/* PLANETAS não sobe (anula hover global do menu) */
+nav.main-nav .has-submenu > a,
+nav.main-nav .has-submenu > a:hover,
+nav.main-nav .has-submenu > a:focus-visible{
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Menu dropdown */
+nav.main-nav .has-submenu .submenu{
+  display:none;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  margin: 0 !important;
+  padding: 4px 4px !important;
+  list-style: none;
+  background: rgba(0,0,0,0.88);
+  border: 1px solid rgba(255,178,29,0.75);
+  border-radius: 12px;
+  min-width: 170px;
+  z-index: 9999;
+}
+nav.main-nav .has-submenu:hover .submenu,
+nav.main-nav .has-submenu:focus-within .submenu,
+nav.main-nav .has-submenu.is-open .submenu{ display:block; }
+
+nav.main-nav .has-submenu .submenu li{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Subitens MUITO mais juntos (anula estilos globais de nav a) */
+nav.main-nav .has-submenu .submenu a{
+  display:block;
+  padding: 2px 8px !important;
+  line-height: 1.0 !important;
+  margin: 0 !important;
+
+  font-size: 0.95rem !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  border-radius: 10px;
+  white-space: nowrap;
+
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+nav.main-nav .has-submenu .submenu a:hover,
+nav.main-nav .has-submenu .submenu a:focus-visible{
+  color: #FFB21D !important;
+  background: rgba(255,178,29,0.12) !important;
+  border-color: transparent !important;
+}
+/* NÃO elevar/mexer o item PLANETAS (há hover global no menu) */
+.has-submenu > a:hover,
+.has-submenu > a:focus-visible{
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* remove margens/padding do UL para ficar mais compacto */
+.has-submenu .submenu{
+  display:none;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 4px 4px;
+  list-style: none;
+  background: rgba(0,0,0,0.88);
+  border: 1px solid rgba(255,178,29,0.75);
+  border-radius: 12px;
+  min-width: 170px;
+  z-index: 9999;
+}
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu,
+.has-submenu.is-open .submenu{ display:block; }
+
+.has-submenu .submenu li{
+  margin: 0;
+  padding: 0;
+}
+
+.has-submenu .submenu a{
+  display:block;
+  padding: 2px 8px;     /* subitens MUITO mais juntos */
+  line-height: 1.0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  white-space: nowrap;
+
+  /* neutraliza estilos globais no hover */
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.has-submenu .submenu a:hover,
+.has-submenu .submenu a:focus-visible{
+  color: #FFB21D;
+  background: rgba(255,178,29,0.12) !important;
+  border-color: transparent !important;
+}
+/* Não mexer o item PLANETAS para não criar “gap” */
+.has-submenu > a:hover,
+.has-submenu > a:focus-visible{
+  transform: none;
+}
+
+.has-submenu .submenu{
+  display:none;
+  position:absolute;
+  top: 100%;            /* sem gap entre item e submenu */
+  left: 0;
+  background: rgba(0,0,0,0.88);
+  border: 1px solid rgba(255,178,29,0.75);
+  border-radius: 12px;
+  padding: 6px 6px;
+  min-width: 175px;
+  z-index: 9999;
+}
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu,
+.has-submenu.is-open .submenu{ display:block; }
+
+.has-submenu .submenu li{ list-style: none; margin: 0; padding: 0; }
+.has-submenu .submenu a{
+  display:block;
+  padding: 4px 8px;     /* itens mais juntos */
+  line-height: 1.1;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  white-space: nowrap;
+  border: 1px solid transparent; /* neutraliza estilos globais no hover */
+  background: transparent;
+  transform: none;      /* neutraliza estilos globais no hover */
+  box-shadow: none;
+}
+.has-submenu .submenu a:hover,
+.has-submenu .submenu a:focus-visible{
+  color: #FFB21D;
+  background: rgba(255,178,29,0.12);
+  border-color: transparent;
+  outline: none;
+}
+/* Indicador acessível de estado (sem mudar o visual) */
+.has-submenu > a[aria-expanded="true"]{
+  color: #FFB21D;
+}
+
+nav.main-nav .has-submenu .submenu li,
+nav.main-nav .has-submenu .submenu li + li{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+nav.main-nav .has-submenu .submenu a{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  line-height: 0.95 !important;
+}
+
+
+/* Submenu Planetas: sem efeito de barra/linha; só cor do texto */
+nav.main-nav .has-submenu .submenu a::before,
+nav.main-nav .has-submenu .submenu a::after{
+  content: none !important;
+}
+
+nav.main-nav .has-submenu .submenu li{ margin: 0 !important; padding: 0 !important; }
+nav.main-nav .has-submenu .submenu li + li{ margin-top: 0 !important; }
+nav.main-nav .has-submenu .submenu a{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  min-height: 0 !important;
+}
+
+/* Submenu Planetas: destaque semi-transparente branco (só cores, sem barra) */
+nav.main-nav .has-submenu .submenu a:hover,
+nav.main-nav .has-submenu .submenu a:focus-visible{
+  background: rgba(255,255,255,0.18) !important;
+  box-shadow: none !important;
+}
+nav.main-nav .has-submenu .submenu a:hover,
+nav.main-nav .has-submenu .submenu a:focus-visible{
+  border-color: transparent !important;
+}
+
+nav.main-nav .has-submenu .submenu li + li a{
+  margin-top: -2px !important; /* aproxima itens */
+}
+
+/* Submenu Planetas: no hover sem retângulo; só muda a cor do texto */
+nav.main-nav .has-submenu .submenu a:hover,
+nav.main-nav .has-submenu .submenu a:focus-visible{
+  background: transparent !important;
+}
+
+nav.main-nav .has-submenu .submenu a{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  line-height: 0.82 !important;
+}
+nav.main-nav .has-submenu .submenu li + li a{
+  margin-top: -3px !important;
+}
+
+/* Submenu Planetas: compactação forçada (altura fixa por item) */
+nav.main-nav ul.submenu,
+nav.main-nav .submenu{
+  gap: 0 !important;
+}
+
+nav.main-nav ul.submenu li,
+nav.main-nav ul.submenu li + li{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+nav.main-nav ul.submenu a{
+  text-align: left !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  height: 45px !important;          /* controla o espaço vertical */
+  line-height: 45px !important;
+  padding: 0 8px !important;        /* só horizontal */
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* Submenu Planetas: realce semi-transparente apenas atrás do texto */
+nav.main-nav ul.submenu a{
+  background: transparent !important;
+}
+nav.main-nav ul.submenu a .submenu-label{
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+nav.main-nav ul.submenu a:hover .submenu-label,
+nav.main-nav ul.submenu a:focus-visible .submenu-label{
+  background: rgba(255,255,255,0.18);
+}
+
+/* Submenu Planetas: realce semi-transparente apenas atrás do texto (forçado) */
+nav.main-nav ul.submenu a:hover .submenu-label,
+nav.main-nav ul.submenu a:focus-visible .submenu-label{
+  background: rgba(255,255,255,0.18) !important;
+}
+nav.main-nav ul.submenu .submenu-label{
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+}

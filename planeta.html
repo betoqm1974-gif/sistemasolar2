@@ -10,9 +10,9 @@
 <title>Sistema Solar</title>
 <link href="favicon.ico" rel="icon" sizes="any"/>
 <link href="favicon.png" rel="icon" type="image/png"/>
-<meta content="Página de detalhe do planeta com curiosidades e imagem real da NASA." name="description">
+<meta content="Página de detalhe do planeta com curiosidades e imagem real da NASA." name="description"/>
 <link href="styles.css?v=aa1" rel="stylesheet"/>
-</meta></head>
+</head>
 <body>
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 <header class="header">
@@ -30,7 +30,7 @@
 <path class="home-door" d="M29 48 V38 H35 V48"></path>
 </svg>
 </span><span class="sr-only">Início</span>
-</a> | <a href="planetas.html">Planetas</a> | <a href="multimedia.html">Multimédia</a> | <a href="acessibilidade.html">Acessibilidade</a> | <a href="contacto.html">Contacto</a> | <a href="mapa-do-site.html">Mapa do Site</a></nav>
+</a> | <span class="nav-item has-submenu"><a class="menu-link" href="planetas.html">Planetas</a><ul aria-label="Submenu Planetas" class="submenu"><li><a href="mercurio.html"><span class="submenu-label">Mercúrio</span></a></li><li><a href="venus.html"><span class="submenu-label">Vénus</span></a></li><li><a href="terra.html"><span class="submenu-label">Terra</span></a></li><li><a href="marte.html"><span class="submenu-label">Marte</span></a></li><li><a href="jupiter.html"><span class="submenu-label">Júpiter</span></a></li><li><a href="saturno.html"><span class="submenu-label">Saturno</span></a></li><li><a href="urano.html"><span class="submenu-label">Urano</span></a></li><li><a href="neptuno.html"><span class="submenu-label">Neptuno</span></a></li></ul></span> | <a href="multimedia.html">Multimédia</a> | <a href="acessibilidade.html">Acessibilidade</a> | <a href="contacto.html">Contacto</a> | <a href="mapa-do-site.html">Mapa do Site</a></nav>
 <div class="controls-row">
 <div aria-label="Tamanho do texto" class="font-controls" id="fontControls" role="group">
 <span class="sr-only" id="fontHint">Use A- para diminuir e A+ para aumentar o tamanho do texto.</span>
@@ -72,5 +72,6 @@
 <script src="planeta-page.js"></script>
 <script src="modal.js"></script>
 <script src="font-size.js"></script>
+<script src="nav-submenu.js"></script>
 </body>
 </html>
