@@ -12,8 +12,8 @@ const PAGINAS_PLANETAS = {
   urano: "urano.html",
   marte: "marte.html",
   venus: "venus.html",
-  saturno: "Saturno.html",
-  neptuno: "Neptuno.html"
+  saturno: "saturno.html",
+  neptuno: "neptuno.html"
 };
 
 function hrefPlaneta(id){
