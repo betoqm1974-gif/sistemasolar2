@@ -7,6 +7,30 @@
     var links = nav.querySelector('.nav-links');
     if(!btn || !links) return;
 
+    function markActiveLinks(){
+      var path = (window.location.pathname || '').split('/').pop();
+      if(!path) path = 'index.html';
+      // normalizar (sem parâmetros)
+      path = path.split('?')[0].split('#')[0];
+      var as = nav.querySelectorAll('.nav-links a[href]');
+      as.forEach(function(a){
+        var href = (a.getAttribute('href') || '').split('/').pop();
+        href = href.split('?')[0].split('#')[0];
+        // considerar home
+        if((path === 'index.html' || path === '') && (href === 'index.html' || href === '' || href === './')){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }else if(href && href === path){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }else{
+          a.classList.remove('active');
+          if(a.getAttribute('aria-current') === 'page') a.removeAttribute('aria-current');
+        }
+      });
+    }
+
+
     // Mobile: garantir item "Início" (link para index) como primeiro elemento no menu
     try{
       if(window.innerWidth <= 768){
@@ -72,6 +96,8 @@
     });
 
     // ao mudar para desktop, garantir aberto (CSS trata), mas removemos estado
+    markActiveLinks();
+
     window.addEventListener('resize', function(){
       if(window.innerWidth > 768 && nav.classList.contains('is-open')){
         setOpen(false);

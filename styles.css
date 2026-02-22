@@ -4389,3 +4389,12 @@ nav.main-nav .nav-links{
 body.page-planetas h1{
   transform: translateX(20px);
 }
+
+/* Mobile: garantir que o item activo (inclui "Início") fica laranja */
+@media (max-width: 768px){
+  nav .nav-links a[aria-current="page"],
+  nav .nav-links a.active,
+  nav .nav-links li.active > a{
+    color: #FFB21D !important;
+  }
+}
