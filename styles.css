@@ -4399,7 +4399,11 @@ body.page-planetas h1{
   }
 }
 
-/* Menu: item da página atual sem link (href removido) mantém aspeto */
-nav a[aria-current="page"]:not([href]){
-  cursor: default;
+/* Planetas: legendas das imagens */
+.planet-figure{margin: 0; }
+.planet-caption{
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.92;
+  text-align: center;
 }

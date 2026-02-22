@@ -10,36 +10,23 @@
     function markActiveLinks(){
       var path = (window.location.pathname || '').split('/').pop();
       if(!path) path = 'index.html';
+      // normalizar (sem parâmetros)
       path = path.split('?')[0].split('#')[0];
-
-      var as = nav.querySelectorAll('.nav-links a');
+      var as = nav.querySelectorAll('.nav-links a[href]');
       as.forEach(function(a){
-        var hrefAttr = a.getAttribute('href') || a.getAttribute('data-href') || '';
-        var href = hrefAttr.split('/').pop().split('?')[0].split('#')[0];
-
-        var isHome = (path === 'index.html' || path === '') && (href === 'index.html' || href === '' || href === './');
-        var isSame = href && href === path;
-
-        if(isHome || isSame){
+        var href = (a.getAttribute('href') || '').split('/').pop();
+        href = href.split('?')[0].split('#')[0];
+        // considerar home
+        if((path === 'index.html' || path === '') && (href === 'index.html' || href === '' || href === './')){
           a.classList.add('active');
           a.setAttribute('aria-current','page');
-          // remover link na própria página (guardar para poder repor noutros)
-          if(a.getAttribute('href')){
-            a.setAttribute('data-href', a.getAttribute('href'));
-            a.removeAttribute('href');
-          }
-          a.setAttribute('tabindex','0');
+        }else if(href && href === path){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
         }else{
           a.classList.remove('active');
           if(a.getAttribute('aria-current') === 'page') a.removeAttribute('aria-current');
-          // repor href se foi removido
-          if(!a.getAttribute('href') && a.getAttribute('data-href')){
-            a.setAttribute('href', a.getAttribute('data-href'));
-          }
-          a.removeAttribute('tabindex');
         }
-      });
-    }
       });
     }
 
