@@ -3984,3 +3984,17 @@ body.page-sitemap .sitemap-title-shift{
 .contact-form.contacto-form-align-title{
   max-width: 920px !important;
 }
+
+/* Mobile: evitar cortes (desfazer deslocamentos manuais nas páginas) */
+@media (max-width: 768px){
+  .contacto-title-shift,
+  .contacto-intro-shift,
+  .contacto-form-align-title,
+  .sitemap-title-shift,
+  .sitemap-intro-align-title,
+  .sitemap-links-shift-left,
+  .planetas-title-shift{
+    left: 0 !important;
+    transform: none !important;
+  }
+}
