@@ -3,6 +3,27 @@
   ready(function(){
     var nav = document.querySelector('nav.main-nav');
     if(!nav) return;
+
+    // A11Y/AccessMonitor: evitar aria-label em elementos sem papel ARIA suportado
+    // (ex.: <div class="brand brand-link" aria-label="...">)
+    try {
+      var brandCandidate = nav.querySelector('.brand-link');
+      if (brandCandidate && brandCandidate.tagName && brandCandidate.tagName.toLowerCase() !== 'a') {
+        if (brandCandidate.hasAttribute('aria-label')) brandCandidate.removeAttribute('aria-label');
+        // Se for clicável, garantir navegação por teclado
+        if (!brandCandidate.hasAttribute('role')) brandCandidate.setAttribute('role', 'link');
+        if (!brandCandidate.hasAttribute('tabindex')) brandCandidate.setAttribute('tabindex', '0');
+        if (!brandCandidate._brandKeyHandler) {
+          brandCandidate.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault();
+              window.location.href = 'index.html';
+            }
+          });
+          brandCandidate._brandKeyHandler = true;
+        }
+      }
+    } catch (e) {}
     var btn = nav.querySelector('.nav-toggle');
     var links = nav.querySelector('.nav-links');
     if(!btn || !links) return;

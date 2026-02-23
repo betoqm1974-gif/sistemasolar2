@@ -4102,6 +4102,15 @@ nav.main-nav .nav-links{
     display: inline-block;
     padding: 8px 10px;
   }
+
+  /* No index, o botão Início pode ser um <span> (sem link) para evitar links adjacentes iguais */
+  nav.main-nav .nav-links .home-link{
+    display: inline-block;
+    padding: 8px 10px;
+  }
+  nav.main-nav .nav-links .home-link[aria-current="page"]{
+    cursor: default;
+  }
 }
 
 /* Mobile menu: remover separadores | e submenu a abrir à direita sem tapar */
