@@ -4173,9 +4173,17 @@ nav.main-nav .nav-links{
 }
 
 /* Mobile: substituir ícone da casa por texto "Início" */
-.home-text-mobile{
-  display: none;
-  margin-left: 6px;
+.home-label{
+  /* visível para leitores de ecrã (desktop) e visível no mobile */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 @media (max-width: 768px){
   nav.main-nav a.home-link img,
@@ -4188,9 +4196,15 @@ nav.main-nav .nav-links{
     display: inline-flex;
     align-items: center;
   }
-  nav.main-nav a.home-link .home-text-mobile{
+  nav.main-nav a.home-link .home-label{
     display: inline !important;
-    margin-left: 0;
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 }
 
@@ -4208,7 +4222,7 @@ nav.main-nav .nav-links{
     justify-content: flex-start !important;
     text-align: left !important;
   }
-  nav.main-nav a.home-link .home-text-mobile{
+  nav.main-nav a.home-link .home-label{
     text-align: left !important;
   }
 }
@@ -4285,7 +4299,7 @@ nav.main-nav .nav-links{
     justify-content: flex-start !important;
     min-width: 0 !important;
   }
-  nav.main-nav .nav-links a.nav-home .home-text-mobile{
+  nav.main-nav .nav-links a.nav-home .home-label{
     margin-left: 0 !important;
   }
 
@@ -4305,8 +4319,8 @@ nav.main-nav .nav-links{
     padding-right: 10px !important;
     margin-left: 0 !important;
   }
-  nav.main-nav.is-open .nav-links a.nav-home .home-text-mobile,
-  nav.main-nav.is-open .nav-links a.home-link .home-text-mobile{
+  nav.main-nav.is-open .nav-links a.nav-home .home-label,
+  nav.main-nav.is-open .nav-links a.home-link .home-label{
     margin-left: 0 !important;
     width: auto !important;
   }
